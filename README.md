@@ -26,8 +26,11 @@ A simple and efficient CRUD (Create, Read, Update, Delete) REST API built with G
 ├── handlers.go      # HTTP request handlers
 ├── models.go        # Data models and structs
 ├── database.go      # Database connection and setup
-├── .env            # Environment variables
+├── .env            # Environment variables (not tracked)
+├── .env.example    # Environment variables template
+├── .gitignore      # Git ignore rules
 ├── go.mod          # Go module dependencies
+├── go.sum          # Go module checksums
 └── README.md       # This file
 ```
 
@@ -53,7 +56,13 @@ A simple and efficient CRUD (Create, Read, Update, Delete) REST API built with G
 
 4. **Configure environment variables**
 
-   Update the `.env` file with your database credentials:
+   Copy the example environment file and update it with your database credentials:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   Then edit the `.env` file with your actual database credentials:
 
    ```env
    DB_CONNECTION=pgsql
@@ -61,8 +70,10 @@ A simple and efficient CRUD (Create, Read, Update, Delete) REST API built with G
    DB_PORT=5432
    DB_DATABASE=crud_db
    DB_USERNAME=postgres
-   DB_PASSWORD=your_password
+   DB_PASSWORD=your_actual_password
    ```
+
+   **Note**: The `.env` file is ignored by Git to keep your credentials secure.
 
 5. **Run the application**
    ```bash
